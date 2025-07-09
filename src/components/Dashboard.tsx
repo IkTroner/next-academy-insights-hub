@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { LogOut, Copy, Calendar } from "lucide-react";
+import { LogOut, Copy } from "lucide-react";
 import { MetricsCards } from "@/components/MetricsCards";
 import { DateFilter } from "@/components/DateFilter";
 import { DetailedTable } from "@/components/DetailedTable";
@@ -53,39 +53,62 @@ export const Dashboard = ({ influencerData, onLogout }) => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
       {/* Header */}
-      <header className="border-b border-gray-800 bg-gray-900">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-white">Next Academy</h1>
-          <Button 
-            onClick={onLogout}
-            variant="ghost" 
-            className="text-gray-400 hover:text-white"
-          >
-            <LogOut className="h-4 w-4 mr-2" />
-            Sair
-          </Button>
+      <header className="border-b border-gray-700/50 bg-black/50 backdrop-blur-sm sticky top-0 z-50">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex justify-between items-center">
+            <div className="flex items-center space-x-8">
+              <div className="flex items-center space-x-4">
+                <img 
+                  src="/lovable-uploads/b3f362ba-5714-4c51-a4b3-8fe3950075cc.png" 
+                  alt="Next Academy" 
+                  className="h-10 w-auto"
+                />
+                <div className="h-8 w-px bg-gray-600"></div>
+                <img 
+                  src="/lovable-uploads/9f934302-cd8d-4ce2-9d40-d9432a25b755.png" 
+                  alt="Adidas" 
+                  className="h-8 w-auto"
+                />
+              </div>
+              <h1 className="text-2xl font-bold bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
+                Dashboard do Influencer
+              </h1>
+            </div>
+            <Button 
+              onClick={onLogout}
+              variant="ghost" 
+              className="text-gray-300 hover:text-white hover:bg-gray-800/50 transition-all duration-200"
+            >
+              <LogOut className="h-4 w-4 mr-2" />
+              Sair
+            </Button>
+          </div>
         </div>
       </header>
 
       <div className="container mx-auto px-4 py-8">
         {/* Welcome Section */}
-        <div className="mb-8">
-          <h2 className="text-3xl font-bold mb-2">Olá, {influencerData.name}! 👋</h2>
-          <p className="text-gray-400">Acompanhe sua performance e ganhos</p>
+        <div className="mb-8 text-center">
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+            Olá, {influencerData.name}! 👋
+          </h2>
+          <p className="text-xl text-gray-300">Acompanhe sua performance e ganhos em tempo real</p>
         </div>
 
         {/* Campaign Link Section */}
-        <div className="bg-gray-900 border border-gray-800 rounded-lg p-6 mb-8">
-          <h3 className="text-xl font-semibold mb-4 text-white">Seu Link Exclusivo de Campanha</h3>
-          <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-            <div className="flex-1 bg-gray-800 border border-gray-700 rounded-lg p-3 font-mono text-sm text-gray-300">
+        <div className="bg-gradient-to-r from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 mb-8 shadow-2xl">
+          <h3 className="text-2xl font-semibold mb-6 text-center bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
+            💎 Seu Link Exclusivo de Campanha
+          </h3>
+          <div className="flex flex-col sm:flex-row gap-4 items-center">
+            <div className="flex-1 bg-black/30 border border-gray-600/50 rounded-xl p-4 font-mono text-sm text-gray-200 backdrop-blur-sm">
               {influencerData.campaignLink}
             </div>
             <Button 
               onClick={copyLink}
-              className="bg-orange-500 hover:bg-orange-600 text-black font-bold"
+              className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105"
             >
               <Copy className="h-4 w-4 mr-2" />
               Copiar Link
@@ -103,6 +126,36 @@ export const Dashboard = ({ influencerData, onLogout }) => {
 
         {/* Metrics Cards */}
         <MetricsCards metrics={metrics} />
+
+        {/* Commission Table Reference */}
+        <div className="bg-gradient-to-r from-gray-800/30 to-gray-900/30 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 mb-8">
+          <h3 className="text-xl font-semibold mb-4 text-center text-white flex items-center justify-center">
+            💰 Tabela de Comissão por Performance
+          </h3>
+          <div className="overflow-hidden rounded-xl bg-black/20">
+            <table className="w-full">
+              <thead className="bg-gradient-to-r from-orange-500/20 to-red-500/20">
+                <tr>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-white">Resultado Gerado</th>
+                  <th className="px-6 py-4 text-center text-sm font-semibold text-white">Comissão por Unidade</th>
+                  <th className="px-6 py-4 text-center text-sm font-semibold text-white">Observação</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-700/50">
+                <tr className="hover:bg-white/5 transition-colors">
+                  <td className="px-6 py-4 text-sm text-gray-200 font-medium">Lead gerado</td>
+                  <td className="px-6 py-4 text-center text-sm font-bold text-green-400">R$ 0,50</td>
+                  <td className="px-6 py-4 text-center text-sm text-gray-300">Lead qualificado com nome e WhatsApp</td>
+                </tr>
+                <tr className="hover:bg-white/5 transition-colors">
+                  <td className="px-6 py-4 text-sm text-gray-200 font-medium">Inscrição/venda realizada</td>
+                  <td className="px-6 py-4 text-center text-sm font-bold text-green-400">R$ 75,00</td>
+                  <td className="px-6 py-4 text-center text-sm text-gray-300">Pode ser seletiva, matrícula etc.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
 
         {/* Detailed Table */}
         <DetailedTable 

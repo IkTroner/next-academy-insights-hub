@@ -27,18 +27,20 @@ export const DateFilter = ({ dateRange, setDateRange, customDateRange, setCustom
   };
 
   return (
-    <div className="bg-gray-900 border border-gray-800 rounded-lg p-6 mb-8">
-      <h3 className="text-lg font-semibold mb-4 text-white">Filtro de Período</h3>
+    <div className="bg-gradient-to-r from-gray-800/30 to-gray-900/30 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 mb-8 shadow-xl">
+      <h3 className="text-xl font-semibold mb-6 text-white flex items-center">
+        📅 Filtro de Período
+      </h3>
       
-      <div className="flex flex-wrap gap-3 mb-4">
+      <div className="flex flex-wrap gap-3 mb-6">
         {dateOptions.slice(0, 4).map((option) => (
           <Button
             key={option.value}
             onClick={() => setDateRange(option.value)}
             variant={dateRange === option.value ? "default" : "outline"}
             className={dateRange === option.value 
-              ? "bg-orange-500 hover:bg-orange-600 text-black border-orange-500" 
-              : "border-gray-700 text-gray-300 hover:bg-gray-800"
+              ? "bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white border-0 shadow-lg" 
+              : "border-gray-600/50 text-gray-300 hover:bg-gray-700/50 hover:text-white backdrop-blur-sm"
             }
           >
             {option.label}
@@ -47,17 +49,19 @@ export const DateFilter = ({ dateRange, setDateRange, customDateRange, setCustom
       </div>
 
       {/* Custom Date Range */}
-      <div className="border-t border-gray-800 pt-4">
-        <h4 className="text-sm font-medium text-gray-400 mb-3">Período Personalizado</h4>
-        <div className="flex flex-col sm:flex-row gap-3 items-end">
+      <div className="border-t border-gray-700/50 pt-6">
+        <h4 className="text-sm font-medium text-gray-300 mb-4 flex items-center">
+          🗓️ Período Personalizado
+        </h4>
+        <div className="flex flex-col sm:flex-row gap-4 items-end">
           <div className="flex-1">
-            <label className="block text-sm text-gray-400 mb-1">De:</label>
+            <label className="block text-sm text-gray-400 mb-2">De:</label>
             <Popover>
               <PopoverTrigger asChild>
                 <Button
                   variant="outline"
                   className={cn(
-                    "w-full justify-start text-left font-normal border-gray-700 bg-gray-800",
+                    "w-full justify-start text-left font-normal border-gray-600/50 bg-black/20 backdrop-blur-sm hover:bg-gray-700/30",
                     !customDateRange.from && "text-gray-400"
                   )}
                 >
@@ -69,7 +73,7 @@ export const DateFilter = ({ dateRange, setDateRange, customDateRange, setCustom
                   )}
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="w-auto p-0 bg-gray-800 border-gray-700" align="start">
+              <PopoverContent className="w-auto p-0 bg-gray-800 border-gray-600" align="start">
                 <Calendar
                   mode="single"
                   selected={customDateRange.from}
@@ -82,13 +86,13 @@ export const DateFilter = ({ dateRange, setDateRange, customDateRange, setCustom
           </div>
 
           <div className="flex-1">
-            <label className="block text-sm text-gray-400 mb-1">Até:</label>
+            <label className="block text-sm text-gray-400 mb-2">Até:</label>
             <Popover>
               <PopoverTrigger asChild>
                 <Button
                   variant="outline"
                   className={cn(
-                    "w-full justify-start text-left font-normal border-gray-700 bg-gray-800",
+                    "w-full justify-start text-left font-normal border-gray-600/50 bg-black/20 backdrop-blur-sm hover:bg-gray-700/30",
                     !customDateRange.to && "text-gray-400"
                   )}
                 >
@@ -100,7 +104,7 @@ export const DateFilter = ({ dateRange, setDateRange, customDateRange, setCustom
                   )}
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="w-auto p-0 bg-gray-800 border-gray-700" align="start">
+              <PopoverContent className="w-auto p-0 bg-gray-800 border-gray-600" align="start">
                 <Calendar
                   mode="single"
                   selected={customDateRange.to}
@@ -115,7 +119,7 @@ export const DateFilter = ({ dateRange, setDateRange, customDateRange, setCustom
           <Button
             onClick={handleCustomDateApply}
             disabled={!customDateRange.from || !customDateRange.to}
-            className="bg-orange-500 hover:bg-orange-600 text-black font-bold"
+            className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold px-6 py-2 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200"
           >
             Aplicar Filtro
           </Button>
