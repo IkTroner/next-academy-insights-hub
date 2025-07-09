@@ -88,14 +88,6 @@ export const Dashboard = ({ influencerData, onLogout }) => {
       </header>
 
       <div className="container mx-auto px-4 py-8">
-        {/* Welcome Section */}
-        <div className="mb-8 text-center">
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-            Olá, {influencerData.name}! 👋
-          </h2>
-          <p className="text-xl text-gray-300">Acompanhe sua performance e ganhos em tempo real</p>
-        </div>
-
         {/* Campaign Link Section */}
         <div className="bg-gradient-to-r from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 mb-8 shadow-2xl">
           <h3 className="text-2xl font-semibold mb-6 text-center bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">

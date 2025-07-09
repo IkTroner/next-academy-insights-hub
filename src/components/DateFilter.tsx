@@ -40,7 +40,7 @@ export const DateFilter = ({ dateRange, setDateRange, customDateRange, setCustom
             variant={dateRange === option.value ? "default" : "outline"}
             className={dateRange === option.value 
               ? "bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white border-0 shadow-lg" 
-              : "border-gray-600/50 text-gray-300 hover:bg-gray-700/50 hover:text-white backdrop-blur-sm"
+              : "border-gray-500 bg-gray-700/30 text-gray-200 hover:bg-gray-600/50 hover:text-white backdrop-blur-sm hover:border-gray-400"
             }
           >
             {option.label}
@@ -61,7 +61,7 @@ export const DateFilter = ({ dateRange, setDateRange, customDateRange, setCustom
                 <Button
                   variant="outline"
                   className={cn(
-                    "w-full justify-start text-left font-normal border-gray-600/50 bg-black/20 backdrop-blur-sm hover:bg-gray-700/30",
+                    "w-full justify-start text-left font-normal border-gray-500 bg-gray-700/30 text-gray-200 hover:bg-gray-600/50 hover:border-gray-400",
                     !customDateRange.from && "text-gray-400"
                   )}
                 >
@@ -92,7 +92,7 @@ export const DateFilter = ({ dateRange, setDateRange, customDateRange, setCustom
                 <Button
                   variant="outline"
                   className={cn(
-                    "w-full justify-start text-left font-normal border-gray-600/50 bg-black/20 backdrop-blur-sm hover:bg-gray-700/30",
+                    "w-full justify-start text-left font-normal border-gray-500 bg-gray-700/30 text-gray-200 hover:bg-gray-600/50 hover:border-gray-400",
                     !customDateRange.to && "text-gray-400"
                   )}
                 >
