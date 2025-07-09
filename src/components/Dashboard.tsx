@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { LogOut, Copy } from "lucide-react";
@@ -67,7 +66,7 @@ export const Dashboard = ({ influencerData, onLogout }) => {
                 />
                 <div className="h-8 w-px bg-gray-600"></div>
                 <img 
-                  src="/lovable-uploads/9f934302-cd8d-4ce2-9d40-d9432a25b755.png" 
+                  src="/lovable-uploads/dd96d960-2986-43fd-b32c-a1e59264223f.png" 
                   alt="Adidas" 
                   className="h-8 w-auto"
                 />
@@ -126,36 +125,6 @@ export const Dashboard = ({ influencerData, onLogout }) => {
 
         {/* Metrics Cards */}
         <MetricsCards metrics={metrics} />
-
-        {/* Commission Table Reference */}
-        <div className="bg-gradient-to-r from-gray-800/30 to-gray-900/30 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 mb-8">
-          <h3 className="text-xl font-semibold mb-4 text-center text-white flex items-center justify-center">
-            💰 Tabela de Comissão por Performance
-          </h3>
-          <div className="overflow-hidden rounded-xl bg-black/20">
-            <table className="w-full">
-              <thead className="bg-gradient-to-r from-orange-500/20 to-red-500/20">
-                <tr>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-white">Resultado Gerado</th>
-                  <th className="px-6 py-4 text-center text-sm font-semibold text-white">Comissão por Unidade</th>
-                  <th className="px-6 py-4 text-center text-sm font-semibold text-white">Observação</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-700/50">
-                <tr className="hover:bg-white/5 transition-colors">
-                  <td className="px-6 py-4 text-sm text-gray-200 font-medium">Lead gerado</td>
-                  <td className="px-6 py-4 text-center text-sm font-bold text-green-400">R$ 0,50</td>
-                  <td className="px-6 py-4 text-center text-sm text-gray-300">Lead qualificado com nome e WhatsApp</td>
-                </tr>
-                <tr className="hover:bg-white/5 transition-colors">
-                  <td className="px-6 py-4 text-sm text-gray-200 font-medium">Inscrição/venda realizada</td>
-                  <td className="px-6 py-4 text-center text-sm font-bold text-green-400">R$ 75,00</td>
-                  <td className="px-6 py-4 text-center text-sm text-gray-300">Pode ser seletiva, matrícula etc.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
 
         {/* Detailed Table */}
         <DetailedTable 
