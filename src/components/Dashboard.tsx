@@ -52,33 +52,28 @@ export const Dashboard = ({ influencerData, onLogout }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
+    <div className="min-h-screen bg-black text-white">
       {/* Header */}
-      <header className="border-b border-gray-700/50 bg-black/50 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
+      <header className="border-b border-gray-800 bg-black sticky top-0 z-50">
+        <div className="container mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-8">
-              <div className="flex items-center space-x-4">
-                <img 
-                  src="/lovable-uploads/b3f362ba-5714-4c51-a4b3-8fe3950075cc.png" 
-                  alt="Next Academy" 
-                  className="h-10 w-auto"
-                />
-                <div className="h-8 w-px bg-gray-600"></div>
-                <img 
-                  src="/lovable-uploads/dd96d960-2986-43fd-b32c-a1e59264223f.png" 
-                  alt="Adidas" 
-                  className="h-8 w-auto"
-                />
-              </div>
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
-                Dashboard do Influencer
-              </h1>
+            <div className="flex items-center space-x-6">
+              <img 
+                src="/lovable-uploads/b3f362ba-5714-4c51-a4b3-8fe3950075cc.png" 
+                alt="Next Academy" 
+                className="h-8 w-auto"
+              />
+              <div className="h-6 w-px bg-gray-700"></div>
+              <img 
+                src="/lovable-uploads/dd96d960-2986-43fd-b32c-a1e59264223f.png" 
+                alt="Adidas" 
+                className="h-6 w-auto"
+              />
             </div>
             <Button 
               onClick={onLogout}
               variant="ghost" 
-              className="text-gray-300 hover:text-white hover:bg-gray-800/50 transition-all duration-200"
+              className="text-gray-300 hover:text-white hover:bg-gray-900 rounded-xl transition-all duration-200"
             >
               <LogOut className="h-4 w-4 mr-2" />
               Sair
@@ -87,19 +82,19 @@ export const Dashboard = ({ influencerData, onLogout }) => {
         </div>
       </header>
 
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-6 py-8">
         {/* Campaign Link Section */}
-        <div className="bg-gradient-to-r from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 mb-8 shadow-2xl">
-          <h3 className="text-2xl font-semibold mb-6 text-center bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
+        <div className="bg-gray-900 border border-gray-800 rounded-2xl p-8 mb-8">
+          <h3 className="text-2xl font-semibold mb-6 text-center text-white">
             💎 Seu Link Exclusivo de Campanha
           </h3>
           <div className="flex flex-col sm:flex-row gap-4 items-center">
-            <div className="flex-1 bg-black/30 border border-gray-600/50 rounded-xl p-4 font-mono text-sm text-gray-200 backdrop-blur-sm">
+            <div className="flex-1 bg-black border border-gray-800 rounded-xl p-4 font-mono text-sm text-gray-300">
               {influencerData.campaignLink}
             </div>
             <Button 
               onClick={copyLink}
-              className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105"
+              className="bg-orange-500 hover:bg-orange-600 text-black font-bold px-8 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105"
             >
               <Copy className="h-4 w-4 mr-2" />
               Copiar Link
