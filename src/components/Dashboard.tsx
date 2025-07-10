@@ -47,7 +47,7 @@ export const Dashboard = ({ influencerData, onLogout, isAdminView = false }) => 
   const copyLink = () => {
     navigator.clipboard.writeText(influencerData.campaignLink);
     toast({
-      title: "🎉 Link copiado!",
+      title: "Link copiado!",
       description: "Seu link exclusivo foi copiado para a área de transferência.",
     });
   };
@@ -55,44 +55,44 @@ export const Dashboard = ({ influencerData, onLogout, isAdminView = false }) => 
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Header */}
-      <header className="border-b-2 border-orange-500/30 bg-black sticky top-0 z-50 shadow-xl shadow-orange-500/10">
-        <div className="container mx-auto px-6 py-6">
+      <header className="border-b border-gray-700 bg-black sticky top-0 z-50 shadow-lg">
+        <div className="container mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-8">
+            <div className="flex items-center space-x-6">
               {isAdminView && (
                 <>
                   <Button
                     onClick={onLogout}
                     variant="ghost"
-                    className="text-orange-400 hover:text-orange-300 hover:bg-orange-500/20 rounded-2xl px-6 py-3 font-semibold border border-orange-500/30 transition-all duration-300"
+                    className="text-orange-400 hover:text-orange-300 hover:bg-orange-500/10 rounded-md px-4 py-2 font-medium border border-gray-600 transition-colors"
                   >
-                    <ArrowLeft className="h-5 w-5 mr-2" />
-                    ← Voltar ao Admin
+                    <ArrowLeft className="h-4 w-4 mr-2" />
+                    Voltar ao Admin
                   </Button>
-                  <div className="h-8 w-px bg-orange-500"></div>
+                  <div className="h-6 w-px bg-gray-600"></div>
                 </>
               )}
               
               {/* Logos Section */}
-              <div className="flex items-center space-x-6">
+              <div className="flex items-center space-x-4">
                 <img 
                   src="/lovable-uploads/b3f362ba-5714-4c51-a4b3-8fe3950075cc.png" 
                   alt="Next Academy" 
-                  className="h-10 w-auto"
+                  className="h-8 w-auto"
                 />
-                <div className="h-8 w-px bg-orange-500"></div>
+                <div className="h-6 w-px bg-gray-600"></div>
                 <img 
                   src="/lovable-uploads/dd96d960-2986-43fd-b32c-a1e59264223f.png" 
                   alt="Adidas" 
-                  className="h-8 w-auto"
+                  className="h-6 w-auto"
                 />
               </div>
               
               {isAdminView && (
                 <>
-                  <div className="h-8 w-px bg-orange-500"></div>
-                  <div className="bg-orange-500/20 px-4 py-2 rounded-2xl border border-orange-500/50">
-                    <span className="text-orange-300 font-bold">📊 Dashboard de {influencerData.name}</span>
+                  <div className="h-6 w-px bg-gray-600"></div>
+                  <div className="bg-orange-500/10 px-4 py-2 rounded-md border border-orange-500/30">
+                    <span className="text-orange-300 font-medium">Dashboard de {influencerData.name}</span>
                   </div>
                 </>
               )}
@@ -102,32 +102,32 @@ export const Dashboard = ({ influencerData, onLogout, isAdminView = false }) => 
               <Button 
                 onClick={onLogout}
                 variant="ghost" 
-                className="text-orange-400 hover:text-orange-300 hover:bg-orange-500/20 rounded-2xl px-6 py-3 font-semibold border border-orange-500/30 transition-all duration-300"
+                className="text-orange-400 hover:text-orange-300 hover:bg-orange-500/10 rounded-md px-4 py-2 font-medium border border-gray-600 transition-colors"
               >
-                <LogOut className="h-5 w-5 mr-2" />
-                🚪 Sair
+                <LogOut className="h-4 w-4 mr-2" />
+                Sair
               </Button>
             )}
           </div>
         </div>
       </header>
 
-      <div className="container mx-auto px-6 py-8">
+      <div className="container mx-auto px-6 py-6">
         {/* Campaign Link Section */}
-        <div className="bg-gradient-to-r from-orange-500/10 to-orange-600/10 border-2 border-orange-500/30 rounded-3xl p-8 mb-8 shadow-2xl shadow-orange-500/10">
-          <h3 className="text-3xl font-bold mb-6 text-center text-white flex items-center justify-center">
-            🚀 Seu Link Exclusivo de Campanha
+        <div className="bg-gradient-to-r from-orange-500/10 to-orange-600/10 border border-orange-500/30 rounded-lg p-6 mb-6 shadow-lg">
+          <h3 className="text-xl font-semibold mb-4 text-center text-white">
+            Link Exclusivo de Campanha
           </h3>
-          <div className="flex flex-col sm:flex-row gap-6 items-center">
-            <div className="flex-1 bg-black border-2 border-orange-500/50 rounded-2xl p-6 font-mono text-lg text-orange-300 shadow-lg">
+          <div className="flex flex-col sm:flex-row gap-4 items-center">
+            <div className="flex-1 bg-black border border-gray-600 rounded-md p-4 font-mono text-sm text-orange-300 shadow-sm">
               {influencerData.campaignLink}
             </div>
             <Button 
               onClick={copyLink}
-              className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-black font-black px-8 py-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 text-lg"
+              className="bg-orange-500 hover:bg-orange-600 text-black font-semibold px-6 py-2 rounded-md shadow-md transition-colors"
             >
-              <Copy className="h-5 w-5 mr-3" />
-              📋 Copiar Link
+              <Copy className="h-4 w-4 mr-2" />
+              Copiar Link
             </Button>
           </div>
         </div>

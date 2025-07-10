@@ -62,37 +62,37 @@ export const LoginForm = ({ onLogin }) => {
               className="h-10 w-auto"
             />
           </div>
-          <h1 className="text-3xl font-bold text-white mb-2">Dashboard de Parceria</h1>
+          <h1 className="text-3xl font-bold text-white mb-2">Painel de Controle</h1>
           <p className="text-gray-400">Sistema de Gestão de Campanhas</p>
         </div>
         
-        <Card className="bg-gray-900 border-2 border-orange-500/30 rounded-3xl overflow-hidden shadow-2xl shadow-orange-500/10">
-          <CardHeader className="bg-gradient-to-r from-orange-500/20 to-orange-600/20 border-b border-orange-500/30">
-            <h2 className="text-2xl font-bold text-center text-white">🔐 Acesso ao Sistema</h2>
+        <Card className="bg-gray-900 border border-gray-700 rounded-lg shadow-2xl">
+          <CardHeader className="bg-gradient-to-r from-orange-500/10 to-orange-600/10 border-b border-gray-700">
+            <h2 className="text-xl font-semibold text-center text-white">Acesso ao Sistema</h2>
           </CardHeader>
-          <CardContent className="p-8">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="space-y-3">
-                <Label htmlFor="username" className="text-white font-semibold text-lg">👤 Usuário</Label>
+          <CardContent className="p-6">
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="username" className="text-white font-medium">Usuário</Label>
                 <Input
                   id="username"
                   type="text"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
-                  className="bg-black border-2 border-orange-500/50 text-white placeholder-gray-400 rounded-2xl h-14 text-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 transition-all duration-300"
-                  placeholder="Digite seu usuário ou 'admin'"
+                  className="bg-black border border-gray-600 text-white placeholder-gray-400 rounded-md h-10 focus:border-orange-500 focus:ring-1 focus:ring-orange-500"
+                  placeholder="Digite seu usuário"
                   required
                 />
               </div>
               
-              <div className="space-y-3">
-                <Label htmlFor="password" className="text-white font-semibold text-lg">🔑 Senha</Label>
+              <div className="space-y-2">
+                <Label htmlFor="password" className="text-white font-medium">Senha</Label>
                 <Input
                   id="password"
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="bg-black border-2 border-orange-500/50 text-white placeholder-gray-400 rounded-2xl h-14 text-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 transition-all duration-300"
+                  className="bg-black border border-gray-600 text-white placeholder-gray-400 rounded-md h-10 focus:border-orange-500 focus:ring-1 focus:ring-orange-500"
                   placeholder="Digite sua senha"
                   required
                 />
@@ -101,15 +101,15 @@ export const LoginForm = ({ onLogin }) => {
               <Button
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-black font-black rounded-2xl h-14 text-xl transition-all duration-300 hover:scale-105 shadow-lg shadow-orange-500/30"
+                className="w-full bg-orange-500 hover:bg-orange-600 text-black font-semibold rounded-md h-10 mt-6 transition-colors"
               >
-                {isLoading ? "🔄 Entrando..." : "🚀 Entrar no Sistema"}
+                {isLoading ? "Entrando..." : "Entrar"}
               </Button>
             </form>
             
-            <div className="mt-8 text-center p-4 bg-orange-500/10 rounded-2xl border border-orange-500/30">
-              <p className="text-orange-400 text-sm font-medium">
-                💡 Use "admin" como usuário para acesso administrativo
+            <div className="mt-6 text-center p-3 bg-orange-500/10 rounded-md border border-orange-500/20">
+              <p className="text-orange-400 text-sm">
+                Use "admin" como usuário para acesso administrativo
               </p>
             </div>
           </CardContent>

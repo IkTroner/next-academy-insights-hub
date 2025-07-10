@@ -14,7 +14,7 @@ export const MetricsCards = ({ metrics }) => {
     {
       title: "Total de Leads Gerados",
       value: metrics.totalLeads,
-      subtitle: "(Leads qualificados com nome e WhatsApp)",
+      subtitle: "Leads qualificados com nome e WhatsApp",
       icon: Users,
       color: "text-blue-400",
       bg: "bg-gray-900"
@@ -22,7 +22,7 @@ export const MetricsCards = ({ metrics }) => {
     {
       title: "Total de Vendas/Inscrições",
       value: metrics.totalSales,
-      subtitle: "(Matrículas, seletivas, etc.)",
+      subtitle: "Matrículas, seletivas, etc.",
       icon: Target,
       color: "text-green-400",
       bg: "bg-gray-900"
@@ -46,42 +46,36 @@ export const MetricsCards = ({ metrics }) => {
   ];
 
   return (
-    <div className="mb-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+    <div className="mb-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
         {cards.map((card, index) => (
-          <Card key={index} className="border border-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 rounded-2xl">
-            <CardContent className={`p-6 ${card.bg} rounded-2xl relative overflow-hidden`}>
-              <div className="absolute top-0 right-0 w-20 h-20 bg-white/5 rounded-full -translate-y-10 translate-x-10"></div>
-              <div className="relative z-10">
-                <div className="flex items-center justify-between mb-4">
-                  <card.icon className={`h-8 w-8 ${card.color}`} />
-                  <div className="text-right">
-                    <div className="text-2xl font-bold text-white">{card.value}</div>
-                  </div>
+          <Card key={index} className="border border-gray-700 shadow-md hover:shadow-lg transition-shadow rounded-lg">
+            <CardContent className={`p-4 ${card.bg} rounded-lg`}>
+              <div className="flex items-center justify-between mb-3">
+                <card.icon className={`h-6 w-6 ${card.color}`} />
+                <div className="text-right">
+                  <div className="text-xl font-bold text-white">{card.value}</div>
                 </div>
-                <h3 className="text-sm font-medium text-white mb-2">{card.title}</h3>
-                <p className="text-xs text-gray-400">{card.subtitle}</p>
               </div>
+              <h3 className="text-sm font-medium text-white mb-2">{card.title}</h3>
+              <p className="text-xs text-gray-400">{card.subtitle}</p>
             </CardContent>
           </Card>
         ))}
       </div>
 
       {/* Total Earnings - Enhanced Card */}
-      <Card className="border border-gray-800 shadow-2xl overflow-hidden rounded-2xl">
-        <CardContent className="p-8 bg-gray-900 relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-orange-600/10 rounded-2xl"></div>
-          <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/10 rounded-full -translate-y-16 translate-x-16"></div>
-          <div className="absolute bottom-0 left-0 w-24 h-24 bg-orange-500/5 rounded-full translate-y-12 -translate-x-12"></div>
-          <div className="relative z-10 text-center">
-            <div className="flex items-center justify-center mb-4">
-              <DollarSign className="h-12 w-12 text-orange-500 mr-3" />
-              <h3 className="text-2xl font-bold text-white">Ganhos Totais</h3>
+      <Card className="border border-gray-700 shadow-lg overflow-hidden rounded-lg">
+        <CardContent className="p-6 bg-gray-900">
+          <div className="text-center">
+            <div className="flex items-center justify-center mb-3">
+              <DollarSign className="h-8 w-8 text-orange-500 mr-2" />
+              <h3 className="text-xl font-semibold text-white">Ganhos Totais</h3>
             </div>
-            <p className="text-5xl font-bold text-orange-500 mb-2">
+            <p className="text-3xl font-bold text-orange-500 mb-2">
               {formatCurrency(metrics.totalEarnings)}
             </p>
-            <p className="text-lg text-gray-400">
+            <p className="text-sm text-gray-400">
               Soma das comissões de leads e vendas no período selecionado
             </p>
           </div>
