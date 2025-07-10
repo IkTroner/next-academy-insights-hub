@@ -1,12 +1,13 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { LogOut, Copy } from "lucide-react";
+import { LogOut, Copy, ArrowLeft } from "lucide-react";
 import { MetricsCards } from "@/components/MetricsCards";
 import { DateFilter } from "@/components/DateFilter";
 import { DetailedTable } from "@/components/DetailedTable";
 import { toast } from "@/hooks/use-toast";
 
-export const Dashboard = ({ influencerData, onLogout }) => {
+export const Dashboard = ({ influencerData, onLogout, isAdminView = false }) => {
   const [dateRange, setDateRange] = useState("30days");
   const [customDateRange, setCustomDateRange] = useState({ from: null, to: null });
   const [metrics, setMetrics] = useState({
@@ -58,6 +59,19 @@ export const Dashboard = ({ influencerData, onLogout }) => {
         <div className="container mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-6">
+              {isAdminView && (
+                <>
+                  <Button
+                    onClick={onLogout}
+                    variant="ghost"
+                    className="text-gray-300 hover:text-white hover:bg-gray-900 rounded-xl"
+                  >
+                    <ArrowLeft className="h-4 w-4 mr-2" />
+                    Voltar ao Admin
+                  </Button>
+                  <div className="h-6 w-px bg-gray-700"></div>
+                </>
+              )}
               <img 
                 src="/lovable-uploads/b3f362ba-5714-4c51-a4b3-8fe3950075cc.png" 
                 alt="Next Academy" 
@@ -69,15 +83,23 @@ export const Dashboard = ({ influencerData, onLogout }) => {
                 alt="Adidas" 
                 className="h-6 w-auto"
               />
+              {isAdminView && (
+                <>
+                  <div className="h-6 w-px bg-gray-700"></div>
+                  <span className="text-gray-400">Dashboard de {influencerData.name}</span>
+                </>
+              )}
             </div>
-            <Button 
-              onClick={onLogout}
-              variant="ghost" 
-              className="text-gray-300 hover:text-white hover:bg-gray-900 rounded-xl transition-all duration-200"
-            >
-              <LogOut className="h-4 w-4 mr-2" />
-              Sair
-            </Button>
+            {!isAdminView && (
+              <Button 
+                onClick={onLogout}
+                variant="ghost" 
+                className="text-gray-300 hover:text-white hover:bg-gray-900 rounded-xl transition-all duration-200"
+              >
+                <LogOut className="h-4 w-4 mr-2" />
+                Sair
+              </Button>
+            )}
           </div>
         </div>
       </header>
